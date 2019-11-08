@@ -4,6 +4,4 @@ The purpose of this project is to experiment with different reinforcement learni
 algorithms in OpenAI Gym's 3D Robotics Environment.
 
 Contributors:
-Nick Landy
-Noah Katz
-Jad Faraj
+Nick Landy, Noah Katz, Jad Faraj
