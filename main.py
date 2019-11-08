@@ -3,10 +3,10 @@
 # Make sure to set ALGO to which algorithm you want to try.
 
 import gym
-from QLearnAgent import QLearn
-from SARSAAgent import SARSALearn
-from BAMDPAgent import BAMDPLearn
-from randomAgent import randLearn
+from QLearnAgent import teachQLearnAgent
+from SARSAAgent import teachSARSAAgent
+from BAMDPAgent import teachBAMDPAgent
+from randomAgent import teachRandomAgent
 
 env_name = 'CartPole-v0'
 
@@ -16,16 +16,16 @@ env_name = 'CartPole-v0'
 ALGO = "Random"
 
 ALGO_DICT = {
-"Q-Learning" : QLearn,
-"SARSA" : SARSALearn,
-"BAMDP" : BAMDPLearn,
-"Random" : randLearn
+"Q-Learning" : teachQLearnAgent,
+"SARSA" : teachSARSAAgent,
+"BAMDP" : teachBAMDPAgent,
+"Random" : teachRandomAgent
 }
 
 def main():
     env = gym.make(env_name)
     if(ALGO in ALGO_DICT.keys()):
-        policy = ALGO_DICT[ALGO](env)
+        agent = ALGO_DICT[ALGO](env)
     else:
         assert False, ("Algorithm not implemented and included yet.")
 
@@ -33,7 +33,7 @@ def main():
         observation = env.reset()
         for t in range(100):
             env.render()
-            action = policy(observation)
+            action = agent.policy(observation)
             observation, reward, done, info = env.step(action)
             if done:
                 print("Episode finished after {} timesteps".format(t+1))
