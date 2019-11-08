@@ -10,10 +10,10 @@ from randomAgent import randLearn
 
 env_name = 'CartPole-v0'
 
-ALGO = "Q-Learning"
+# ALGO = "Q-Learning"
 # ALGO = "SARSA"
 # ALGO = "BAMDP"
-# ALGO = "Random"
+ALGO = "Random"
 
 ALGO_DICT = {
 "Q-Learning" : QLearn,
