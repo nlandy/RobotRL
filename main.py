@@ -8,12 +8,12 @@ from SARSAAgent import teachSARSAAgent
 from BAMDPAgent import teachBAMDPAgent
 from randomAgent import teachRandomAgent
 
-env_name = 'CartPole-v0'
+env_name = 'FetchReach-v1'
 
 # ALGO = "Q-Learning"
 # ALGO = "SARSA"
 # ALGO = "BAMDP"
-ALGO = "Random"
+# ALGO = "Random"
 
 ALGO_DICT = {
 "Q-Learning" : teachQLearnAgent,
@@ -24,6 +24,7 @@ ALGO_DICT = {
 
 def main():
     env = gym.make(env_name)
+    env.env.__init__(reward_type='dense')
     if(ALGO in ALGO_DICT.keys()):
         agent = ALGO_DICT[ALGO](env)
     else:
